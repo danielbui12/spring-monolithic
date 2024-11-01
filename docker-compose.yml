@@ -1,0 +1,12 @@
+version: '4'
+services:
+  danielshop_db:
+    image: mysql:8.3.0
+    container_name: danielshop_db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data/danielshop_db:/var/lib/mysql
+      - ./data/sql/init.sql:/docker-entrypoint-initdb.d/init.sql
